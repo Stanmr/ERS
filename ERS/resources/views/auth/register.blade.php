@@ -8,10 +8,11 @@
         {{ csrf_field() }}
 
         <div class="form-group{{ $errors->has('nombre') ? ' has-error' : '' }}">
+
             <label for="nombre" class="col-md-4 control-label">Nombre</label>
 
-            
-                <input id="nombre" type="text" class="form-control" name="nombre" value="{{ old('nombre') }}" required autofocus>
+
+                <input id="nombre" type="text" class="form-control" name="nombre" placeholder="Nombre" value="{{ old('nombre') }}" required autofocus>
 
                 @if ($errors->has('nombre'))
                     <span class="help-block">
@@ -25,7 +26,7 @@
             <label for="apellido" class="col-md-4 control-label">Apellido</label>
 
             
-                <input id="apellido" type="text" class="form-control" name="apellido" value="{{ old('apellido') }}" required autofocus>
+                <input id="apellido" type="text" class="form-control" name="apellido" placeholder="Apellido" value="{{ old('apellido') }}" required autofocus>
 
                 @if ($errors->has('apellido'))
                     <span class="help-block">
@@ -40,7 +41,7 @@
             <label for="telefono" class="col-md-4 control-label">Teléfono</label>
 
             
-                <input id="telefono" type="text" class="form-control" name="telefono" value="{{ old('telefono') }}" required autofocus>
+                <input id="telefono" type="text" class="form-control" name="telefono" placeholder="Teléfono" value="{{ old('telefono') }}" required autofocus>
 
                 @if ($errors->has('telefono'))
                     <span class="help-block">
@@ -54,7 +55,7 @@
             <label for="email" class="col-md-4 control-label">Dirección de Correo</label>
 
             
-                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                <input id="email" type="email" class="form-control" name="email" placeholder="E-Mail" value="{{ old('email') }}" required>
 
                 @if ($errors->has('email'))
                     <span class="help-block">
@@ -68,7 +69,7 @@
             <label for="password" class="col-md-4 control-label">Contraseña</label>
 
             
-                <input id="password" type="password" class="form-control" name="password" required>
+                <input id="password" type="password" class="form-control" name="password" placeholder="Contraseña" required>
 
                 @if ($errors->has('password'))
                     <span class="help-block">
@@ -81,7 +82,7 @@
         <div class="form-group">
             <label for="password-confirm" class="col-md-4 control-label">Confirmar Contraseña</label>
 
-                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Repetir Contraseña" required>
         </div>
 
 

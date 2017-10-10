@@ -136,6 +136,8 @@
                 <div class="top-right links">
                     @if (Auth::check())
                     <i class="icon-user"></i>
+                    {{ Auth::user()->nombre }}
+                    <b class="caret"></b>
 
                     @else
                         <li><a href="{{ url('/login') }}">Login</a><li>
@@ -144,7 +146,7 @@
                 </div>
             @endif
 
-                <b class="caret"></b>
+               
 
             </a>
 
@@ -233,7 +235,7 @@
 
                             <i class="icon-home"></i>
 
-                            <span>Home</span>
+                            <span>Inicio</span>
 
                         </a>                        
 
@@ -245,9 +247,9 @@
 
                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
 
-                            <i class="icon-th"></i>
+                            <i class="icon-file-text"></i>
 
-                            <span>Components</span>
+                            <span>Proyectos</span>
 
                             <b class="caret"></b>
 
@@ -257,7 +259,7 @@
 
                         <ul class="dropdown-menu">
 
-                            <li><a href="./elements.html">Elements</a></li>
+                            <li><a href="./elements.html">Ver</a></li>
 
                             <li><a href="./forms.html">Form Styles</a></li>
 
@@ -277,9 +279,9 @@
 
                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
 
-                            <i class="icon-copy"></i>
+                            <i class="icon-group"></i>
 
-                            <span>Sample Pages</span>
+                            <span>Equipos</span>
 
                             <b class="caret"></b>
 
@@ -289,7 +291,7 @@
 
                         <ul class="dropdown-menu">
 
-                            <li><a href="./pricing.html">Pricing Plans</a></li>
+                            <li><a href="{{ url('/teams') }}">Registra tu equipo!</a></li>
 
                             <li><a href="./faq.html">FAQ's</a></li>
 
@@ -309,9 +311,54 @@
 
                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
 
-                            <i class="icon-external-link"></i>
+                            <i class="icon-comment"></i>
 
-                            <span>Extra Pages</span>
+                            <span>Mentores</span>
+
+                            <b class="caret"></b>
+
+                        </a>    
+
+                    
+
+                        <ul class="dropdown-menu">
+
+                            <li><a href="./login.html">Login</a></li>
+
+                            <li><a href="./signup.html">Signup</a></li>
+
+                            <li><a href="./error.html">Error</a></li>
+
+                            <li class="dropdown-submenu">
+
+                                <a tabindex="-1" href="#">More options</a>
+
+                                <ul class="dropdown-menu">
+
+                                  <li><a tabindex="-1" href="#">Second level</a></li>
+
+
+
+                                  <li><a href="#">Second level</a></li>
+
+                                  <li><a href="#">Second level</a></li>
+
+                                </ul>
+
+                              </li>
+
+                        </ul>                   
+
+                    </li>
+
+
+                    <li class="dropdown">                   
+
+                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+
+                            <i class="icon-eye-open"></i>
+
+                            <span>Jueces</span>
 
                             <b class="caret"></b>
 
