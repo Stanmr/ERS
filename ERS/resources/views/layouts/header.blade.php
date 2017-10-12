@@ -94,35 +94,6 @@
 
     <ul class="nav navbar-nav navbar-right">
 
-      <li class="dropdown">
-
-                        
-
-            <a href="javscript:;" class="dropdown-toggle" data-toggle="dropdown">
-
-                <i class="icon-cog"></i>
-
-                Configuración
-
-                <b class="caret"></b>
-
-            </a>
-
-            
-
-            <ul class="dropdown-menu">
-
-                <li><a href="./account.html">Configuración de la cuenta</a></li>
-
-                <li><a href="javascript:;">Configuracion de privacidad</a></li>
-
-            </ul>
-
-            
-
-        </li>
-
-
 
         <li class="dropdown">
 
@@ -132,7 +103,7 @@
 
                  
 
-                @if (Route::has('login'))
+            @if (Route::has('login'))
                 <div class="top-right links">
                     @if (Auth::check())
                     <i class="icon-user"></i>
@@ -144,7 +115,7 @@
                         <li><a href="{{ url('/register') }}">Register</a><li>
                     @endif
                 </div>
-            @endif
+                @endif
 
                
 
@@ -164,11 +135,11 @@
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             Logout
-                                        </a>
+                    </a>
 
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form></li>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form></li>
 
 
             </ul>
@@ -259,7 +230,7 @@
 
                         <ul class="dropdown-menu">
 
-                            <li><a href="./elements.html">Ver</a></li>
+                            <li><a href="{{ url('/proyectos') }}">Ver</a></li>
 
                             <li><a href="./forms.html">Form Styles</a></li>
 

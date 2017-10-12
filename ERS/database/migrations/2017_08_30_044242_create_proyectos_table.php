@@ -20,7 +20,6 @@ class CreateProyectosTable extends Migration
             $table->text('descripcion');
             $table->string('url');
             $table->string('picture_url');
-            $table->integer('clave_unica')->unique();
             $table->integer('calificacion')->nullable();
             $table->timestamps();
         });

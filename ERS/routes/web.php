@@ -44,3 +44,6 @@ Route::group(['prefix' => 'teams', 'namespace' => 'Teamwork'], function()
 
     Route::get('accept/{token}', 'AuthController@acceptInvite')->name('teams.accept_invite');
 });
+
+
+Route::resource('proyectos', 'Proyecto\\ProyectosController');
