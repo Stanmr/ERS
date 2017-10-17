@@ -49,6 +49,9 @@ class ProyectosController extends Controller
      */
     public function create()
     {
+        if(Auth::user()->current_team_id ==null){
+            return redirect('teams/create');
+        }
         return view('proyectos.proyectos.create');
     }
 

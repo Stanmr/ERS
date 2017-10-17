@@ -9,13 +9,11 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Proyectos</div>
                     <div class="panel-body">
-                        <a href="{{ url('/proyectos/create') }}" class="btn btn-success btn-sm" title="Add New Proyecto">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Add New
-                        </a>
+                        
 
                         <form method="GET" action="{{ url('/proyectos') }}" accept-charset="UTF-8" class="navbar-form navbar-right" role="search">
                             <div class="input-group">
-                                <input type="text" class="form-control" name="search" placeholder="Search...">
+                                <input type="text" class="form-control" name="search" placeholder="Buscar">
                                 <span class="input-group-btn">
                                     <button class="btn btn-default" type="submit">
                                         <i class="fa fa-search"></i>
@@ -37,16 +35,9 @@
                                 @foreach($proyectos as $item)
                                     <tr>
                                         <td>{{ $loop->iteration or $item->id }}</td>
-                                        <td>{{ $item->nombre }}</td><td>{{ $item->descripcion }}</td><td>{{ $item->url }}</td><td><img src="/uploads/proyectos/{{$item->picture_url}}" style="height:100px;"></td>
+                                        <td>{{ $item->nombre }}</td><td>{{ $item->descripcion }}</td><td><a href="{{ $item->url }}">{{ $item->url }}</a></td><td><img src="/uploads/proyectos/{{$item->picture_url}}" style="height:100px;"></td>
                                         <td>
                                             <a href="{{ url('/proyectos/' . $item->id) }}" title="Ver Proyecto"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i>Ver</button></a>
-                                            <a href="{{ url('/proyectos/' . $item->id . '/edit') }}" title="Edit Proyecto"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
-
-                                            <form method="POST" action="{{ url('/proyectos' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
-                                                {{ method_field('DELETE') }}
-                                                {{ csrf_field() }}
-                                                <button type="submit" class="btn btn-danger btn-xs" title="Delete Proyecto" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
-                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach

@@ -14,24 +14,35 @@
 
     <meta name="apple-mobile-web-app-capable" content="yes">    
 
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/bootstrap-responsive.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/ui-lightness/jquery-ui-1.10.0.custom.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/base-admin-3.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/base-admin-3-responsive.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/pages/dashboard.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     
 
+    <link href="././css/bootstrap.min.css" rel="stylesheet">
 
-
+    <link href="././css/bootstrap-responsive.min.css" rel="stylesheet">
 
     
 
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
 
-   
+    <link href="./css/font-awesome.min.css" rel="stylesheet">        
+
+    
+
+    <link href="./css/ui-lightness/jquery-ui-1.10.0.custom.min.css" rel="stylesheet">
+
+    
+
+    <link href="./css/base-admin-3.css" rel="stylesheet">
+
+    <link href="./css/base-admin-3-responsive.css" rel="stylesheet">
+
+    
+
+    <link href="./css/pages/dashboard.css" rel="stylesheet">   
+
+
+
+    <link href="./css/custom.css" rel="stylesheet">
 
 
 
@@ -189,7 +200,7 @@
 
                 
 
-                    <li class="">
+                    <li class="active">
 
                         <a href="{{ route('home') }}">
 
@@ -219,9 +230,15 @@
 
                         <ul class="dropdown-menu">
 
-                            <li><a href="{{ url('/proyectos') }}">Proyectos recientes</a></li>
+                            <li><a href="{{ url('/proyectos') }}">Ver</a></li>
 
-                            <li><a href="{{ url('/proyectos/create') }}">Registra tu proyecto!</a></li>
+                            <li><a href="./forms.html">Form Styles</a></li>
+
+                            <li><a href="./jqueryui.html">jQuery UI</a></li>
+
+                            <li><a href="./charts.html">Charts</a></li>
+
+                            <li><a href="./popups.html">Popups/Notifications</a></li>
 
                         </ul>               
 
@@ -537,15 +554,32 @@
 ================================================== -->
 
 <!-- Placed at the end of the document so the pages load faster -->
-    <script src="{{ asset('js/libs/jquery-1.9.1.min.js') }}"></script>
-    <script src="{{ asset('js/libs/jquery-ui-1.10.0.custom.min.js') }}"></script>
-    <script src="{{ asset('js/libs/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('js/plugins/flot/jquery.flot.js') }}"></script>
-    <script src="{{ asset('js/plugins/flot/jquery.flot.pie.js') }}"></script>
-    <script src="{{ asset('js/plugins/flot/jquery.flot.resize.js') }}"></script>
-    <script src="{{ asset('js/Application.js') }}"></script>
-    <script src="{{ asset('js/charts/area.js') }}"></script>
-    <script src="{{ asset('js/charts/donut.js') }}"></script>
+
+<script src="./js/libs/jquery-1.9.1.min.js"></script>
+
+<script src="./js/libs/jquery-ui-1.10.0.custom.min.js"></script>
+
+<script src="./js/libs/bootstrap.min.js"></script>
+
+
+
+<script src="./js/plugins/flot/jquery.flot.js"></script>
+
+<script src="./js/plugins/flot/jquery.flot.pie.js"></script>
+
+<script src="./js/plugins/flot/jquery.flot.resize.js"></script>
+
+
+
+<script src="./js/Application.js"></script>
+
+
+
+<script src="./js/charts/area.js"></script>
+
+<script src="./js/charts/donut.js"></script>
+
+
 
   </body>
 

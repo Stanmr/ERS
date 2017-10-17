@@ -9,7 +9,6 @@
                 <div class="panel panel-default">
                     <div class="panel-heading"><b>Proyecto: </b>{{ $proyecto->nombre }}</div>
                     <div class="panel-body">
-
                         <a href="{{ url('/proyectos') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
                         <a href="{{ url('/proyectos/' . $proyecto->id . '/edit') }}" title="Edit Proyecto"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
 
@@ -34,6 +33,7 @@
                                     <tr><th> Equipo </th><td> {{ DB::table('teams')
                                         ->join('proyectos', 'teams.proyectos_id', '=', 'proyectos.id')
                                         ->select('teams.name')
+                                        ->where('teams.proyectos_id', '=', $proyecto->id)
                                         ->value('teams.name') }} </td></tr>
                                     
                                 </tbody>
@@ -45,4 +45,4 @@
             </div>
         </div>
     </div>
-@stop
+@endsection
