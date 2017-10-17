@@ -1,13 +1,13 @@
-@extends('layouts.app')
+@extends('layouts.header')
+
+@section('title', 'Proyectos')
 
 @section('content')
     <div class="container">
         <div class="row">
-            @include('admin.sidebar')
-
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Proyecto {{ $proyecto->id }}</div>
+                    <div class="panel-heading"><b>Proyecto: </b>{{ $proyecto->nombre }}</div>
                     <div class="panel-body">
 
                         <a href="{{ url('/proyectos') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
@@ -23,14 +23,19 @@
 
                         <div class="table-responsive">
                             <table class="table table-borderless">
-                                <tbody>
-                                    <tr>
-                                        <th>ID</th><td>{{ $proyecto->id }}</td>
-                                    </tr>
+                                <tbody text-align:center>
+                                    <img src="/uploads/proyectos/{{$proyecto->picture_url}}" >
                                     <tr><th> Nombre </th><td> {{ $proyecto->nombre }} </td></tr>
                                     <tr><th> Descripcion </th><td> {{ $proyecto->descripcion }} </td></tr>
                                     <tr><th> Url </th><td> {{ $proyecto->url }} </td></tr>
-                                    <tr><th> Picture Url </th><td> {{ $proyecto->picture_url }} </td></tr>
+                                    
+                                    
+
+                                    <tr><th> Equipo </th><td> {{ DB::table('teams')
+                                        ->join('proyectos', 'teams.proyectos_id', '=', 'proyectos.id')
+                                        ->select('teams.name')
+                                        ->value('teams.name') }} </td></tr>
+                                    
                                 </tbody>
                             </table>
                         </div>
@@ -40,4 +45,4 @@
             </div>
         </div>
     </div>
-@endsection
+@stop

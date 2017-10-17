@@ -1,11 +1,13 @@
-@extends('layouts.app')
+@extends('layouts.header')
+
+@section('title', 'Inicio')
 
 @section('content')
     <div class="container">
         <div class="row">
-            @include('admin.sidebar')
+         
 
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">Edit Proyecto #{{ $proyecto->id }}</div>
                     <div class="panel-body">

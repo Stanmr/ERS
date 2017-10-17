@@ -28,4 +28,9 @@ class User extends Authenticatable
     protected $hidden = [
        'id', 'password', 'remember_token'
     ];
+
+    public function equipo(){
+
+    return belongsTo('teams');
+}
 }

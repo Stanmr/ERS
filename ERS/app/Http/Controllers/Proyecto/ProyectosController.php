@@ -9,6 +9,7 @@ use App\Proyecto;
 use Illuminate\Http\Request;
 use Session;
 use Auth;
+use Image;
 
 class ProyectosController extends Controller
 {
@@ -51,6 +52,12 @@ class ProyectosController extends Controller
         return view('proyectos.proyectos.create');
     }
 
+    public function equipo(){
+        $teamModel = config('teamwork.team_model');
+        return $teamModel->name::where('id', Auth::user()->current_team_id);
+    }
+        
+
     /**
      * Store a newly created resource in storage.
      *
@@ -60,7 +67,10 @@ class ProyectosController extends Controller
      */
     public function store(Request $request)
     {
-        $request ->file('picture_url')->store('public');
+        $foto_url = $request->file('picture_url');
+        $filename = time() . '.' . $foto_url->getClientOriginalExtension();
+        Image::make($foto_url)->resize(400, 250)->save(public_path('/uploads/proyectos/' . $filename));
+
 
 
         $requestData = $request->all();
@@ -69,8 +79,10 @@ class ProyectosController extends Controller
             'nombre' => $request['nombre'],
             'descripcion' => $request['descripcion'],
             'url' => $request['url'],
-            'picture_url' => $request['picture_url'],
+            'picture_url' => $filename,
         ]);
+
+
 
         $teamModel = config('teamwork.team_model');
         $teamModel::where('id', Auth::user()->current_team_id)
@@ -119,11 +131,26 @@ class ProyectosController extends Controller
      */
     public function update($id, Request $request)
     {
-        
         $requestData = $request->all();
-        
         $proyecto = Proyecto::findOrFail($id);
-        $proyecto->update($requestData);
+        $proyecto->nombre = $request->nombre;
+        $proyecto->descripcion = $request->descripcion;
+        $proyecto->url = $request->url;
+
+        if($request->hasFile('picture_url')){
+            $foto_url = $request->file('picture_url');
+            $filename = time() . '.' . $foto_url->getClientOriginalExtension();
+            Image::make($foto_url)->resize(680, 480)->save(public_path('/uploads/proyectos/' . $filename));
+            $proyecto -> picture_url = $filename;
+        }else{
+            $proyecto->picture_url = $proyecto->picture_url;
+        }
+
+
+
+        $proyecto->update();
+        
+        
 
         Session::flash('flash_message', 'Proyecto updated!');
 
@@ -139,6 +166,9 @@ class ProyectosController extends Controller
      */
     public function destroy($id)
     {
+        $teamModel = config('teamwork.team_model');
+        $teamModel::where('id', $id)
+                    ->update(['proyectos_id' =>null ]);
         Proyecto::destroy($id);
 
         Session::flash('flash_message', 'Proyecto deleted!');

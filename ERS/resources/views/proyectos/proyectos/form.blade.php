@@ -21,6 +21,7 @@
 <div class="form-group {{ $errors->has('picture_url') ? 'has-error' : ''}}">
     <label for="picture_url" class="col-md-4 control-label">{{ 'Logo del Proyecto' }}</label>
     <div class="col-md-6">
+        
         <input class="form-control" name="picture_url" type="file" id="picture_url" value="{{ $proyecto->picture_url or ''}}" >
         {!! $errors->first('picture_url', '<p class="help-block">:message</p>') !!}
     </div>

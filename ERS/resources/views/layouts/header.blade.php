@@ -82,7 +82,7 @@
 
     </button>
 
-    <a class="navbar-brand" href="./index.html">ERS Logo</a>
+    <a class="navbar-brand" href="{{ route('home') }}">ERS Logo</a>
 
   </div>
 
@@ -202,7 +202,7 @@
 
                     <li class="active">
 
-                        <a href="./index.html">
+                        <a href="{{ route('home') }}">
 
                             <i class="icon-home"></i>
 
