@@ -20,6 +20,7 @@ class CreateProyectosTable extends Migration
             $table->text('descripcion');
             $table->string('url');
             $table->string('picture_url');
+            $table->string('propuesta');
             $table->integer('calificacion')->nullable();
             $table->timestamps();
         });

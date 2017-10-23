@@ -74,6 +74,12 @@ class ProyectosController extends Controller
         $filename = time() . '.' . $foto_url->getClientOriginalExtension();
         Image::make($foto_url)->resize(400, 250)->save(public_path('/uploads/proyectos/' . $filename));
 
+        $propuesta = $request->file('propuesta');
+        $nombre_archivo = time() . '.' . $propuesta->getClientOriginalExtension();
+        $propuesta ->move(base_path() . '/public/uploads/propuestas/' , $nombre_archivo);
+        
+
+
 
 
         $requestData = $request->all();
@@ -83,6 +89,7 @@ class ProyectosController extends Controller
             'descripcion' => $request['descripcion'],
             'url' => $request['url'],
             'picture_url' => $filename,
+            'propuesta' => $nombre_archivo,
         ]);
 
 
@@ -147,6 +154,15 @@ class ProyectosController extends Controller
             $proyecto -> picture_url = $filename;
         }else{
             $proyecto->picture_url = $proyecto->picture_url;
+        }
+
+        if($request->hasFile('propuesta')){
+            $propuesta = $request->file('propuesta');
+            $nombre_archivo = time() . '.' . $propuesta->getClientOriginalExtension();
+            $propuesta ->move(base_path() . '/public/uploads/propuestas/' , $nombre_archivo);
+            $proyecto -> propuesta = $nombre_archivo;
+        }else{
+            $proyecto->propuesta = $proyecto->propuesta;
         }
 
 

@@ -23,14 +23,16 @@
                         <div class="table-responsive">
                             <table class="table table-borderless">
                                 <tbody text-align:center>
-                                    <img src="/uploads/proyectos/{{$proyecto->picture_url}}" >
-                                    <tr><th> Nombre </th><td> {{ $proyecto->nombre }} </td></tr>
-                                    <tr><th> Descripcion </th><td> {{ $proyecto->descripcion }} </td></tr>
-                                    <tr><th> Url </th><td> {{ $proyecto->url }} </td></tr>
+                                    <tr><th><img src="/uploads/proyectos/{{$proyecto->picture_url}}" ></th><td align="center"><h1>{{ $proyecto->nombre }}</h1>
+                                        {{ $proyecto->descripcion }}
+                                    </td></tr>
+                                    
+                                    <tr><th> Url </th><td align="center"> {{ $proyecto->url }} </td></tr>
+                                    <tr><th>Propuesta: </th><td align="center"><a href="/uploads/propuestas/{{$proyecto->propuesta}}">{{$proyecto->propuesta}}</a></td></tr>
                                     
                                     
 
-                                    <tr><th> Equipo </th><td> {{ DB::table('teams')
+                                    <tr><th> Equipo </th><td align="center"> {{ DB::table('teams')
                                         ->join('proyectos', 'teams.proyectos_id', '=', 'proyectos.id')
                                         ->select('teams.name')
                                         ->where('teams.proyectos_id', '=', $proyecto->id)
