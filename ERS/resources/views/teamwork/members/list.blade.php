@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.header')
 
 @section('content')
     <div class="container">
@@ -21,7 +21,7 @@
                             </thead>
                             @foreach($team->users AS $user)
                                 <tr>
-                                    <td>{{$user->name}}</td>
+                                    <td>{{$user->nombre}} {{$user->apellido}}</td>
                                     <td>
                                         @if(auth()->user()->isOwnerOfTeam($team))
                                             @if(auth()->user()->getKey() !== $user->getKey())
