@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.reset_email')
 
 @section('content')
 <div class="container">

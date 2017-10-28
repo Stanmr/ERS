@@ -71,7 +71,7 @@
 
     </button>
 
-    <a class="navbar-brand" href="{{ route('home') }}">ERS Logo</a>
+    <a class="navbar-brand" href="{{ route('home') }}"><img src="/img/logo.png" width="200"></a>
 
   </div>
 
@@ -96,12 +96,12 @@
                 <div class="top-right links">
                     @if (Auth::check())
                     <i class="icon-user"></i>
-                    {{ Auth::user()->nombre }}
+                    {{ Auth::user()->nombres }}
                     <b class="caret"></b>
 
                     @else
-                        <li><a href="{{ url('/login') }}">Login</a><li>
-                        <li><a href="{{ url('/register') }}">Register</a><li>
+                        <li><a href="{{ url('/login') }}">Iniciar Sesión</a><li>
+                        <li><a href="{{ url('/register') }}">Registrate!</a><li>
                     @endif
                 </div>
                 @endif
@@ -114,11 +114,12 @@
 
             <ul class="dropdown-menu">
 
-                <li><a href="javascript:;">My Profile</a></li>
+                <!--<li><a href="javascript:;">My Profile</a></li>
 
                 <li><a href="javascript:;">My Groups</a></li>
 
                 <li class="divider"></li>
+                -->
 
                 <li><a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
@@ -138,18 +139,6 @@
         </li>
 
     </ul>
-
-    
-
-    <form class="navbar-form navbar-right" role="search">
-
-      <div class="form-group">
-
-        <input type="text" class="form-control input-sm search-query" placeholder="Search">
-
-      </div>
-
-    </form>
 
   </div><!-- /.navbar-collapse -->
 
@@ -189,7 +178,7 @@
 
                 
 
-                    <li class="">
+                    <li class="active">
 
                         <a href="{{ route('home') }}">
 
@@ -215,14 +204,10 @@
 
                         </a>        
 
-                    
-
                         <ul class="dropdown-menu">
 
-                            <li><a href="{{ url('/proyectos') }}">Proyectos recientes</a></li>
-
                             <li><a href="{{ url('/proyectos/create') }}">Registra tu proyecto!</a></li>
-
+                            <li><a href="{{ url('/proyectos') }}">Proyectos recientes</a></li>
                         </ul>               
 
                     </li>
@@ -247,21 +232,13 @@
 
                             <li><a href="{{ url('/teams') }}">Registra tu equipo!</a></li>
 
-                            <li><a href="./faq.html">FAQ's</a></li>
-
-                            <li><a href="./gallery.html">Gallery</a></li>
-
-                            <li><a href="./reports.html">Reports</a></li>
-
-                            <li><a href="./account.html">User Account</a></li>
-
                         </ul>               
 
                     </li>
 
-                    
+                    <!--
 
-                    <li class="dropdown">                   
+                                       <li class="dropdown">                   
 
                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
 
@@ -352,6 +329,10 @@
 
                 
 
+
+                    -->
+
+ 
                 </ul>
 
             </div> <!-- /.subnav-collapse -->
@@ -515,7 +496,7 @@
 
             <div id="footer-copyright" class="col-md-6">
 
-                &copy; ERSclub 2017.
+                &copy; ERSland 2017.
 
             </div> <!-- /span6 -->
 

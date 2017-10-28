@@ -41,11 +41,12 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'nombre' => 'required|string|max:20',
-            'apellido' => 'required|string|max:20',
+            'nombres' => 'required|string|max:20',
+            'apellidos' => 'required|string|max:20',
             'telefono' => 'required|string|max:10|unique:users',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'foto_id' => 'required|mimes:jpg,jpeg,bmp,png,pdf|max:2000',
         ]);
     }
 
@@ -60,18 +61,26 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 
-    $clave = uniqid();
-    $clave = substr($clave,rand(0,strlen($clave) - 6),6);
-    $tipo = 3;
-     
-        return User::create([
-            'nombre' => $data['nombre'],
-            'apellido' => $data['apellido'],
-            'telefono' => $data['telefono'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-            'clave_unica' => $clave,
-            'tipo' => $tipo
-        ]);
+        $foto_id = $data['foto_id'];
+        $nombre_archivo = $data['nombres'] .'_' . $data['apellidos'] . time(). '.' . $foto_id->getClientOriginalExtension();
+        $foto_id ->move(base_path() . '/public/uploads/identificaciones/' , $nombre_archivo);
+
+
+
+
+        $clave = uniqid();
+        $clave = substr($clave,rand(0,strlen($clave) - 6),6);
+        $tipo = 3;
+         
+            return User::create([
+                'nombres' => $data['nombres'],
+                'apellidos' => $data['apellidos'],
+                'telefono' => $data['telefono'],
+                'email' => $data['email'],
+                'foto_id' =>$nombre_archivo,
+                'password' => bcrypt($data['password']),
+                'clave_unica' => $clave,
+                'tipo' => $tipo
+            ]);
     }
 }

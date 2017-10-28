@@ -183,6 +183,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Mpociot\Teamwork\TeamworkServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        GeneaLabs\Phpgmaps\PhpgmapsServiceProvider::class,
 
 
     ],
@@ -236,6 +237,7 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'HTML' => Collective\Html\HtmlFacade::class,
         'Image' => Intervention\Image\Facades\Image::class,
+        'Gmaps' => GeneaLabs\Phpgmaps\Facades\PhpgmapsFacade::class,
 
     ],
 

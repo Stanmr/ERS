@@ -21,7 +21,7 @@
                             </thead>
                             @foreach($team->users AS $user)
                                 <tr>
-                                    <td>{{$user->nombre}} {{$user->apellido}}</td>
+                                    <td>{{$user->nombres}} {{$user->apellidos}}</td>
                                     <td>
                                         @if(auth()->user()->isOwnerOfTeam($team))
                                             @if(auth()->user()->getKey() !== $user->getKey())

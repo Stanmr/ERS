@@ -4,33 +4,33 @@
 
 @section('content')
 <div class="panel-body">
-    <form class="form-horizontal" method="POST" action="{{ route('register') }}">
+    <form class="form-horizontal" method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
         {{ csrf_field() }}
 
-        <div class="form-group{{ $errors->has('nombre') ? ' has-error' : '' }}">
+        <div class="form-group{{ $errors->has('nombres') ? ' has-error' : '' }}">
 
-            <label for="nombre" class="col-md-4 control-label">Nombre</label>
+            <label for="nombres" class="col-md-4 control-label">Nombres</label>
 
 
-                <input id="nombre" type="text" class="form-control" name="nombre" placeholder="Nombre" value="{{ old('nombre') }}" required autofocus>
+                <input id="nombres" type="text" class="form-control" name="nombres" placeholder="Nombres" value="{{ old('nombres') }}" required autofocus>
 
-                @if ($errors->has('nombre'))
+                @if ($errors->has('nombres'))
                     <span class="help-block">
-                        <strong>{{ $errors->first('nombre') }}</strong>
+                        <strong>{{ $errors->first('nombres') }}</strong>
                     </span>
                 @endif
             
         </div>
 
-        <div class="form-group{{ $errors->has('apellido') ? ' has-error' : '' }}">
-            <label for="apellido" class="col-md-4 control-label">Apellido</label>
+        <div class="form-group{{ $errors->has('apellidos') ? ' has-error' : '' }}">
+            <label for="apellidos" class="col-md-4 control-label">Apellidos</label>
 
             
-                <input id="apellido" type="text" class="form-control" name="apellido" placeholder="Apellido" value="{{ old('apellido') }}" required autofocus>
+                <input id="apellidos" type="text" class="form-control" name="apellidos" placeholder="Apellidos" value="{{ old('apellidos') }}" required autofocus>
 
-                @if ($errors->has('apellido'))
+                @if ($errors->has('apellidos'))
                     <span class="help-block">
-                        <strong>{{ $errors->first('apellido') }}</strong>
+                        <strong>{{ $errors->first('apellidos') }}</strong>
                     </span>
                 @endif
             
@@ -46,6 +46,23 @@
                 @if ($errors->has('telefono'))
                     <span class="help-block">
                         <strong>{{ $errors->first('telefono') }}</strong>
+                    </span>
+                @endif
+            
+        </div>
+
+
+
+        Identificación Oficial (escaneada o foto)
+        <div class="form-group{{ $errors->has('foto_id') ? ' has-error' : '' }}">
+            <label for="foto_id" class="col-md-4 control-label">Identificación Oficial</label>
+
+            
+                <input id="foto_id" type="file" class="form-control" name="foto_id" placeholder="Identificación Oficial" value="{{ old('foto_id') }}" required>
+
+                @if ($errors->has('foto_id'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('foto_id') }}</strong>
                     </span>
                 @endif
             
@@ -86,13 +103,15 @@
         </div>
 
 
-        <span class="login-checkbox">
+        <!--<span class="login-checkbox">
 
             <input id="Field" name="Field" type="checkbox" class="field login-checkbox" value="First Choice" tabindex="4" />
 
             <label class="choice" for="Field">He leido y acepto los términos de uso de la plataforma ERS.</label>
 
         </span>
+
+        -->
 
         <div class="form-group">
             

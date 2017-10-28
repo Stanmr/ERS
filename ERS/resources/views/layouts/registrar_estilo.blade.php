@@ -6,7 +6,7 @@
 
     <meta charset="utf-8">
 
-    <title>Registrate :: ERSclub - @yield('title')</title>
+    <title>Registrate :: ERSland - @yield('title')</title>
 
 
 
@@ -76,7 +76,7 @@
 
     </button>
 
-    <a class="navbar-brand" href="./index.html">ERSclub</a>
+    <a class="navbar-brand" href="{{route('home')}}"><img src="/img/logo.png" width="200"></a>
 
   </div>
 
@@ -88,23 +88,11 @@
 
     <ul class="nav navbar-nav navbar-right">
 
-      <li class="">                     
-
-            <a href="./signup.html">
-
-                Crea una cuenta
-
-            </a>            
-
-        </li>
-
-
-
         <li class="">
 
                         
 
-            <a href="#">
+            <a href="{{route('home')}}">
 
                 <i class="icon-chevron-left"></i>&nbsp;&nbsp; 
 
@@ -139,8 +127,7 @@
         
 
             <h1>Crea tu cuenta</h1>            
-
-            
+            <!--
 
             <div class="login-social">
 
@@ -164,8 +151,7 @@
 
             </div>
 
-            
-
+            -->    
             <div class="login-fields">
 
                 

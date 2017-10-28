@@ -69,22 +69,7 @@
 
     <ul class="nav navbar-nav navbar-right">
 
-      <li class="">						
-
-			<a href="{{ route('register') }}">
-
-				Registrate!
-
-			</a>			
-
-		</li>
-
-
-
 		<li class="">
-
-						
-
 			<a href="{{route('home')}}">
 
 				<i class="icon-chevron-left"></i>&nbsp;&nbsp; 
@@ -104,108 +89,7 @@
 </div> <!-- /.container -->
 
 </nav>
-
-
-
-
-
-
-
-<div class="account-container stacked">
-
-	
-
-	<div class="content clearfix">
-
-		
-
-			<h1>Inicia Sesión</h1>		
-
-			
-
-			<div class="login-fields">
-
-				
-
-				<p>Inicia sesión con tu cuenta de ERSland:</p>
-
-				@yield('content')
-
-			<!--<div class="login-social">
-
-				<p>Inicia sesión con tus redes sociales:</p>
-
-				
-
-				<div class="twitter">
-
-					<a href="#" class="btn_1">Twitter</a>				
-
-				</div>
-
-				
-
-				<div class="fb">
-
-					<a href="#" class="btn_2">Facebook</a>				
-
-				</div>
-
-			</div><!-->
-
-			
-
-		</form>
-
-		
-
-	</div> <!-- /content -->
-
-	
-
-</div> <!-- /account-container -->
-
-
-
-
-
-<!-- Text Under Box -->
-
-<div class="login-extra">
-
-	Aún no tienes cuenta? <a href="{{ route('register') }}">Registrate!</a><br/>
-
-	Recordar <a href="#">Contraseña</a>
-
-</div> <!-- /login-extra -->
-
-
-
-
-
-
-
-<!-- Le javascript
-
-================================================== -->
-
-<!-- Placed at the end of the document so the pages load faster -->
-
-<script src="./js/libs/jquery-1.9.1.min.js"></script>
-
-<script src="./js/libs/jquery-ui-1.10.0.custom.min.js"></script>
-
-<script src="./js/libs/bootstrap.min.js"></script>
-
-
-
-<script src="./js/Application.js"></script>
-
-
-
-<script src="./js/demo/signin.js"></script>
-
-
+@yield('content')
 
 </body>
 
